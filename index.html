@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple, fast currency converter." />
+    <title>Convertly | Currency converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Convertly home">
+          <span class="brand-mark" aria-hidden="true">↗</span>
+          <span>convertly</span>
+        </a>
+        <span class="status-pill"><span class="status-dot"></span>Rates updated today</span>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Money, made clear</p>
+        <h1 id="page-title">Convert without<br /><em>the guesswork.</em></h1>
+        <p class="hero-copy">Quick conversions for wherever your plans take you.</p>
+      </section>
+
+      <section class="converter-layout" aria-label="Currency converter">
+        <div class="converter-card">
+          <div class="field-group">
+            <label for="amount">You send</label>
+            <div class="amount-row">
+              <input id="amount" type="number" inputmode="decimal" min="0" step="any" value="100" aria-describedby="amount-error" />
+              <select id="from-currency" aria-label="Currency to convert from"></select>
+            </div>
+            <p class="field-error" id="amount-error" role="alert"></p>
+          </div>
+
+          <button class="swap-button" id="swap-button" type="button" aria-label="Swap currencies" title="Swap currencies">⇅</button>
+
+          <div class="field-group receive-group">
+            <label for="result">They receive</label>
+            <div class="amount-row result-row">
+              <output id="result" for="amount from-currency to-currency">92.10</output>
+              <select id="to-currency" aria-label="Currency to convert to"></select>
+            </div>
+          </div>
+
+          <div class="rate-note" aria-live="polite">
+            <span class="rate-icon">↳</span>
+            <span id="rate-text">1 USD = 0.92 EUR</span>
+          </div>
+        </div>
+
+        <aside class="info-panel">
+          <p class="panel-label">Today’s snapshot</p>
+          <div class="snapshot-value"><span id="snapshot-result">€92.10</span></div>
+          <p class="snapshot-copy">Based on the mid-market rate. Your bank or provider may add a small markup.</p>
+          <div class="panel-rule"></div>
+          <div class="mini-stat"><span>Last refreshed</span><strong id="updated-time">Just now</strong></div>
+          <div class="mini-stat"><span>Supported currencies</span><strong>8</strong></div>
+        </aside>
+      </section>
+
+      <footer class="footer-note">Rates shown are for illustration and update automatically when connected to a live rates service.</footer>
+    </main>
+  </body>
+</html>
